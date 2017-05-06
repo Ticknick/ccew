@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+Hello1111,World<br/>
+<!--<a href="once.html" >a</a><br/>-->
+<a th:href="@{/once}" style="align-content: center">as</a><br/>
+
+<br/>
+<form th:action="@{/submit}">
+    name:<input name="name" type="text"/><br/>
+    password: <input name="password" type="password"/>
+    <input type="submit"/>
+</form>
+
+
+</body>
+</html>
