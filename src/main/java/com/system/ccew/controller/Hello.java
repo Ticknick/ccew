@@ -1,9 +1,12 @@
 package com.system.ccew.controller;
 
+import com.system.ccew.dao.UserDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author finderlo
@@ -12,9 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class Hello {
 
-    @RequestMapping("/hello")
+    @Autowired
+    UserDao userDao;
+
+    @RequestMapping("/")
     public String hello() {
-        return "hello1";
+
+//        userDao.findByIds()
+//        userDao.findBy("nickname","jey")
+
+        return "order";
     }
 
     @RequestMapping("/hello/as")
