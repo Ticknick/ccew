@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableAutoConfiguration
 @ComponentScan("com.system.ccew")
 public class Application {
-
+//jery
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);
     }
