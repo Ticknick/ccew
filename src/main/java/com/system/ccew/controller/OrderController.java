@@ -47,8 +47,9 @@ public class OrderController {
     public boolean updateOrder(@RequestParam(name = "newState") String newState,
                                @RequestParam(name = "orderId") String orderId
     ){
-        int i=Integer.valueOf(orderId);
-        orderDao.update( orderDao.findById(orderId));
+        OrderEntity orderEntity=orderDao.findById(orderId);
+        orderEntity.setState(newState);
+        orderDao.update( orderEntity);
         return true;
     }
 
