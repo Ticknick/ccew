@@ -7,6 +7,7 @@ import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
@@ -19,13 +20,31 @@ import java.util.List;
 public class OrderController {
     @Autowired
     OrderDao orderDao;
+
     @RequestMapping("/order")
-public String orders(){
+    public String orders() {
         return "order";
     }
+
     @RequestMapping("/orderlist")
     @ResponseBody
     public List<OrderEntity> findOrderList() {
         return orderDao.findAll();
+    }
+
+
+    @RequestMapping("/deleteorder")
+    @ResponseBody
+    public boolean deleteOrder(@RequestParam(name = "orderId") String orderid) {
+        OrderEntity order =orderDao.findById(orderid);
+       return orderDao.delete(order);
+    }
+
+
+    @RequestMapping("/updateorder")
+    @ResponseBody
+    public boolean updateOrder(OrderEntity order){
+        orderDao.update(order);
+        return true;
     }
 }

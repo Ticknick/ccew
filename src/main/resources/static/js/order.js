@@ -8,9 +8,27 @@
 // document.ready(function () {
 //
 // })
+function  updateOrder(order) {
+    $.ajax({
+        url:"updateorder",
+        data:{"order":order},
+        success:function (result) {
+            if(result.equals("true"))alert("修改成功")
+        }
+    })
+}
+
+function deleteOrder(orderid){
+    $.ajax({
+        url:"deleteoder",
+        data:{"orderId":orderid},
+        success:function (result) {
+            if(result.equals("true"))alert("删除成功")
+        }
+    })
+}
 
 function findOrderList() {
-    alert("sadhj");
     $("#orderlist").find("tr").remove();
     $.ajax({
         url: "/orderlist",
@@ -28,7 +46,9 @@ function findOrderList() {
                 html += "<th>"+result[i].state+ "</th>"
                 html += "<th>"+result[i].remark+ "</th>"
                 html += "<th>"+"<button>"+"修改"+"</button>"+ "</th>"
-                html += "<th>"+"<button>"+"删除"+"</button>"+ "</th>"
+                html += "<th>" + "<button id='delete' onclick='deleteOrder(" + result[i].orderid +
+                    ")'>" + "删除" + "</button>" + "</th>"
+
                 html += "</tr>"
 
             }

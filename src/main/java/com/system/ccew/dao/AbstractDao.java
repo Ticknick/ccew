@@ -23,9 +23,14 @@ public abstract class AbstractDao<T> extends AbstractReadDao<T> {
         session.saveOrUpdate(t);
     }
 
-    public void delete(T t) {
-        Session session = sessionFactory.getCurrentSession();
-        session.delete(t);
+    public boolean delete(T t) {
+        try {
+            Session session = sessionFactory.getCurrentSession();
+            session.delete(t);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public void update(T t) {
