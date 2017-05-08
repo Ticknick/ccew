@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.lang.Integer;
 
 /**
  * @author finderlo
@@ -43,9 +44,12 @@ public class OrderController {
 
     @RequestMapping("/updateorder")
     @ResponseBody
-    public boolean updateOrder(OrderEntity order){
-        orderDao.update(order);
+    public boolean updateOrder(@RequestParam(name = "newState") String newState,
+                               @RequestParam(name = "orderId") String orderId
+    ){
+        int i=Integer.valueOf(orderId);
+        orderDao.update( orderDao.findById(orderId));
         return true;
     }
-    //a
+
 }

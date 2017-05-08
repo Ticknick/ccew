@@ -19,6 +19,8 @@ public class OrderEntity {
     private String state;
     private String remark;
 
+
+
     @Id
     @Column(name = "orderid")
     public int getOrderid() {

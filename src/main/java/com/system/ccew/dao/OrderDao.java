@@ -13,6 +13,12 @@ import java.util.List;
 @Repository
 @Component
 public class OrderDao extends AbstractDao<OrderEntity> {
+//    public String findState(String state) {
+//        switch (state) {
+//            case "01":return "";break;
+//            default: return "";break;
+//        }
+//    }
 
     public List<OrderEntity> findByUser(String user){
         return findBy("user",user);
