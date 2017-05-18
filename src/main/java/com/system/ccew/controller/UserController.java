@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.xml.transform.Source;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author finderlo
@@ -22,7 +25,15 @@ public class UserController {
     @Autowired
     UserDao userDao;
 
+    @RequestMapping("/UserRowEditing")
+    @ResponseBody
+    public boolean userRowEditing(UserEntity user) {
+        userDao.update(user);
+        return true;
+    }
+
     @RequestMapping("/user")
+
     public String user() {
         return "user";
     }
@@ -41,6 +52,6 @@ public class UserController {
         if (a != null) {
             userDao.delete(a);
             return true;
-        }else return false;
+        } else return false;
     }
 }
