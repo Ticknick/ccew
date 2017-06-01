@@ -47,6 +47,7 @@ public class ServerDataSourceConfig {
 
     @Bean
     public DataSource dataSource() {
+        System.out.println("user dirver url:"+DB_URL);
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(DB_DRIVER);
         dataSource.setUrl(DB_URL);
