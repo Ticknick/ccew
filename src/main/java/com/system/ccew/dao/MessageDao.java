@@ -3,7 +3,6 @@ package com.system.ccew.dao;
 import com.system.ccew.entity.MessageEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import sun.plugin2.message.Message;
 
 import java.util.List;
 

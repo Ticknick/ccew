@@ -9,43 +9,44 @@ import javax.persistence.*;
  * @date 07/05/2017
  */
 @Entity
-@Table(name = "user", schema = "huangniuonline", catalog = "")
+@Table(name = "user", schema = "caffeine", catalog = "")
 public class UserEntity {
-    private int userid;
-    private String tel;
-    private String nickname;
+    private int id;
+    private String phone;
+    private String name;
     private String mail;
     private String password;
     private String usergroup;
 
     @Id
     @Column(name = "userid")
-    public int getUserid() {
-        return userid;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getId() {
+        return id;
     }
 
-    public void setUserid(int userid) {
-        this.userid = userid;
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Basic
     @Column(name = "tel")
-    public String getTel() {
-        return tel;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Basic
     @Column(name = "nickname")
-    public String getNickname() {
-        return nickname;
+    public String getName() {
+        return name;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Basic
@@ -85,9 +86,9 @@ public class UserEntity {
 
         UserEntity that = (UserEntity) o;
 
-        if (userid != that.userid) return false;
-        if (tel != null ? !tel.equals(that.tel) : that.tel != null) return false;
-        if (nickname != null ? !nickname.equals(that.nickname) : that.nickname != null) return false;
+        if (id != that.id) return false;
+        if (phone != null ? !phone.equals(that.phone) : that.phone != null) return false;
+        if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (mail != null ? !mail.equals(that.mail) : that.mail != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
         if (usergroup != null ? !usergroup.equals(that.usergroup) : that.usergroup != null) return false;
@@ -97,9 +98,9 @@ public class UserEntity {
 
     @Override
     public int hashCode() {
-        int result = userid;
-        result = 31 * result + (tel != null ? tel.hashCode() : 0);
-        result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
+        int result = id;
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (mail != null ? mail.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         result = 31 * result + (usergroup != null ? usergroup.hashCode() : 0);

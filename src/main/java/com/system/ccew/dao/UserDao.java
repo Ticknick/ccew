@@ -15,20 +15,23 @@ import java.util.List;
 @Component
 public class UserDao extends AbstractDao<UserEntity> {
 
-    public List<UserEntity> findByUserGroup(String group){
-        return findBy("usergroup",group);
+    public List<UserEntity> findByUserGroup(String group) {
+        return findBy("usergroup", group);
     }
 
-    public List<UserEntity> findByTel(String tel){
-        return findBy("tel",tel);
+    public UserEntity findByPhone(String tel) {
+        List<UserEntity> users = findBy("phone", tel);
+        if (users.size() == 0) {
+            return null;
+        } else return users.get(0);
     }
 
-    public List<UserEntity> findByNickName(String name){
-        return findBy("nickname",name);
+    public List<UserEntity> findByNickName(String name) {
+        return findBy("name", name);
     }
 
-    public List<UserEntity> findByMail(String mail){
-        return findBy("mail",mail);
+    public List<UserEntity> findByMail(String mail) {
+        return findBy("mail", mail);
     }
 
 }

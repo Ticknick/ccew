@@ -1,12 +1,13 @@
 package com.system.ccew.config;
 
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -14,13 +15,14 @@ import java.util.Properties;
 
 /**
  * @author finderlo
- * @date 07/05/2017
+ * @date 17/04/2017
  */
 @Configuration
-@PropertySource(value = "classpath:/finderlo_jdbc.properties")
-@Profile("default")
+@PropertySource(value = "classpath:/server_jdbc.properties")
+@Profile("server")
 @EnableTransactionManagement
-public class DataSourceConfig {
+public class ServerDataSourceConfig {
+
 
     @Value("${db.driver}")
     private String DB_DRIVER;
@@ -61,6 +63,7 @@ public class DataSourceConfig {
         Properties hibernateProperties = new Properties();
         hibernateProperties.put("hibernate.dialect", HIBERNATE_DIALECT);
         hibernateProperties.put("hibernate.show_sql", HIBERNATE_SHOW_SQL);
+//        hibernateProperties.put("hibernate.hbm2ddl.auto", HIBERNATE_HBM2DDL_AUTO);
         sessionFactoryBean.setHibernateProperties(hibernateProperties);
 
         return sessionFactoryBean;
@@ -75,8 +78,5 @@ public class DataSourceConfig {
 //        return transactionManager;
     //</editor-fold>
 //    }
-
-    // class DatabaseConfig
-
 
 }

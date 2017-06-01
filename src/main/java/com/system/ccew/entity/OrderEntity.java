@@ -3,16 +3,17 @@ package com.system.ccew.entity;
 import com.google.gson.Gson;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * @author finderlo
  * @date 07/05/2017
  */
 @Entity
-@Table(name = "orders", schema = "huangniuonline", catalog = "")
+@Table(name = "orders", schema = "caffeine", catalog = "")
 public class OrderEntity {
-    private int orderid;
-    private Integer user;
+    private String id;
+    private String user;
     private String bidid;
     private String idcard;
     private String transactionPassword;
@@ -22,22 +23,22 @@ public class OrderEntity {
 
 
     @Id
-    @Column(name = "orderid")
-    public int getOrderid() {
-        return orderid;
+    @Column(name = "id")
+    public String getId() {
+        return id;
     }
 
-    public void setOrderid(int orderid) {
-        this.orderid = orderid;
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Basic
     @Column(name = "user")
-    public Integer getUser() {
+    public String getUser() {
         return user;
     }
 
-    public void setUser(Integer user) {
+    public void setUser(String user) {
         this.user = user;
     }
 
@@ -98,21 +99,19 @@ public class OrderEntity {
 
         OrderEntity that = (OrderEntity) o;
 
-        if (orderid != that.orderid) return false;
+        if (!Objects.equals(id, that.id)) return false;
         if (user != null ? !user.equals(that.user) : that.user != null) return false;
         if (bidid != null ? !bidid.equals(that.bidid) : that.bidid != null) return false;
         if (idcard != null ? !idcard.equals(that.idcard) : that.idcard != null) return false;
         if (transactionPassword != null ? !transactionPassword.equals(that.transactionPassword) : that.transactionPassword != null)
             return false;
         if (state != null ? !state.equals(that.state) : that.state != null) return false;
-        if (remark != null ? !remark.equals(that.remark) : that.remark != null) return false;
-
-        return true;
+        return remark != null ? remark.equals(that.remark) : that.remark == null;
     }
 
     @Override
     public int hashCode() {
-        int result = orderid;
+        int result = 0;
         result = 31 * result + (user != null ? user.hashCode() : 0);
         result = 31 * result + (bidid != null ? bidid.hashCode() : 0);
         result = 31 * result + (idcard != null ? idcard.hashCode() : 0);

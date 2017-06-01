@@ -9,7 +9,7 @@ import javax.persistence.*;
  * @date 07/05/2017
  */
 @Entity
-@Table(name = "message", schema = "huangniuonline", catalog = "")
+@Table(name = "message", schema = "caffeine", catalog = "")
 public class MessageEntity {
     private int messageid;
     private int admin;
