@@ -16,7 +16,7 @@ public class UserEntity {
     private String name;
     private String mail;
     private String password;
-    private String usergroup;
+    private String id_card;
 
     @Id
     @Column(name = "userid")
@@ -70,13 +70,13 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "usergroup")
-    public String getUsergroup() {
-        return usergroup;
+    @Column(name = "user_group")
+    public String getId_card() {
+        return id_card;
     }
 
-    public void setUsergroup(String usergroup) {
-        this.usergroup = usergroup;
+    public void setId_card(String id_card) {
+        this.id_card = id_card;
     }
 
     @Override
@@ -91,7 +91,7 @@ public class UserEntity {
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
         if (mail != null ? !mail.equals(that.mail) : that.mail != null) return false;
         if (password != null ? !password.equals(that.password) : that.password != null) return false;
-        if (usergroup != null ? !usergroup.equals(that.usergroup) : that.usergroup != null) return false;
+        if (id_card != null ? !id_card.equals(that.id_card) : that.id_card != null) return false;
 
         return true;
     }
@@ -103,7 +103,7 @@ public class UserEntity {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (mail != null ? mail.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (usergroup != null ? usergroup.hashCode() : 0);
+        result = 31 * result + (id_card != null ? id_card.hashCode() : 0);
         return result;
     }
 

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -33,5 +34,10 @@ public class UserDao extends AbstractDao<UserEntity> {
     public List<UserEntity> findByMail(String mail) {
         return findBy("mail", mail);
     }
+
+    public UserEntity findById(int id) {
+        return findById(id + "");
+    }
+
 
 }

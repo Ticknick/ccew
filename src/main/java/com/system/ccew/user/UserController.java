@@ -44,7 +44,7 @@ public class UserController {
         user.setPhone(phone);
         user.setPassword(password);
         user.setMail(mail);
-        user.setUsergroup("01");
+        user.setId_card("01");
         userDao.save(user);
         logger.info(user.toString());
         return Response.ok(user);

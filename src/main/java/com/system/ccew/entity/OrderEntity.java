@@ -12,34 +12,47 @@ import java.util.Objects;
 @Entity
 @Table(name = "orders", schema = "caffeine", catalog = "")
 public class OrderEntity {
-    private String id;
-    private String user;
+
+    private int id;
+    private int userId;
     private String bidid;
     private String idcard;
-    private String transactionPassword;
-    private String state;
+    private String bidid_psd;
+    private OrderState state;
     private String remark;
 
+    private UserEntity user;
 
+
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = UserEntity.class)
+    @JoinColumn(name = "userid", insertable = false, updatable = false)
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
 
     @Id
     @Column(name = "id")
-    public String getId() {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
     @Column(name = "user")
-    public String getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     @Basic
@@ -64,21 +77,21 @@ public class OrderEntity {
 
     @Basic
     @Column(name = "transaction_password")
-    public String getTransactionPassword() {
-        return transactionPassword;
+    public String getBidid_psd() {
+        return bidid_psd;
     }
 
-    public void setTransactionPassword(String transactionPassword) {
-        this.transactionPassword = transactionPassword;
+    public void setBidid_psd(String bidid_psd) {
+        this.bidid_psd = bidid_psd;
     }
 
     @Basic
     @Column(name = "state")
-    public String getState() {
+    public OrderState getState() {
         return state;
     }
 
-    public void setState(String state) {
+    public void setState(OrderState state) {
         this.state = state;
     }
 
@@ -100,10 +113,10 @@ public class OrderEntity {
         OrderEntity that = (OrderEntity) o;
 
         if (!Objects.equals(id, that.id)) return false;
-        if (user != null ? !user.equals(that.user) : that.user != null) return false;
+        if (userId != that.userId) return false;
         if (bidid != null ? !bidid.equals(that.bidid) : that.bidid != null) return false;
         if (idcard != null ? !idcard.equals(that.idcard) : that.idcard != null) return false;
-        if (transactionPassword != null ? !transactionPassword.equals(that.transactionPassword) : that.transactionPassword != null)
+        if (bidid_psd != null ? !bidid_psd.equals(that.bidid_psd) : that.bidid_psd != null)
             return false;
         if (state != null ? !state.equals(that.state) : that.state != null) return false;
         return remark != null ? remark.equals(that.remark) : that.remark == null;
@@ -112,10 +125,10 @@ public class OrderEntity {
     @Override
     public int hashCode() {
         int result = 0;
-        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + userId;
         result = 31 * result + (bidid != null ? bidid.hashCode() : 0);
         result = 31 * result + (idcard != null ? idcard.hashCode() : 0);
-        result = 31 * result + (transactionPassword != null ? transactionPassword.hashCode() : 0);
+        result = 31 * result + (bidid_psd != null ? bidid_psd.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (remark != null ? remark.hashCode() : 0);
         return result;

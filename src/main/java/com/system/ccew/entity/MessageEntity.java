@@ -16,8 +16,10 @@ public class MessageEntity {
     private String usergruop;
     private Integer userid;
     private String title;
-    private String messtype;
+    private MessageType messtype;
     private String content;
+
+
 
     @Id
     @Column(name = "messageid")
@@ -71,11 +73,11 @@ public class MessageEntity {
 
     @Basic
     @Column(name = "messtype")
-    public String getMesstype() {
+    public MessageType getMesstype() {
         return messtype;
     }
 
-    public void setMesstype(String messtype) {
+    public void setMesstype(MessageType messtype) {
         this.messtype = messtype;
     }
 
