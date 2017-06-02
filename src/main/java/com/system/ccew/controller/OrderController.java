@@ -2,6 +2,7 @@ package com.system.ccew.controller;
 
 import com.system.ccew.dao.OrderDao;
 import com.system.ccew.entity.OrderEntity;
+import com.system.ccew.entity.OrderState;
 import com.system.ccew.entity.UserEntity;
 import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,7 @@ public class OrderController {
                                @RequestParam(name = "orderId") String orderId
     ){
         OrderEntity orderEntity=orderDao.findById(orderId);
-        orderEntity.setState(newState);
+        orderEntity.setState(OrderState.valueOf(newState));
         orderDao.update( orderEntity);
         return true;
     }
