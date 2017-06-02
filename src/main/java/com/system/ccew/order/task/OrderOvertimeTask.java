@@ -1,8 +1,8 @@
 package com.system.ccew.order.task;
 
-import com.delivery.common.dao.OrderDao;
-import com.delivery.common.entity.OrderEntity;
-import com.delivery.common.util.Task;
+
+import com.system.ccew.dao.OrderDao;
+import com.system.ccew.entity.OrderEntity;
 
 /**
  * 订单超时任务，用来检测订单是否为接单状态，不然设为取消状态
@@ -24,14 +24,14 @@ public class OrderOvertimeTask extends Task {
     public void run() {
         super.run();
         OrderEntity orders = dao.findById(ordersId);
-        if (orders.getState().equals(OrderEntity.OrderState.WAIT_ACCEPT)){
-            synchronized (orders){
-                if (orders.getState().equals(OrderEntity.OrderState.WAIT_ACCEPT)){
-                    orders.setState(OrderEntity.OrderState.CANCELED);
-                    dao.update(orders);
-                }
-            }
-        }
-        orders = null;
+//        if (orders.getState().equals(OrderEntity.OrderState.WAIT_ACCEPT)){
+//            synchronized (orders){
+//                if (orders.getState().equals(OrderEntity.OrderState.WAIT_ACCEPT)){
+//                    orders.setState(OrderEntity.OrderState.CANCELED);
+//                    dao.update(orders);
+//                }
+//            }
+//        }
+//        orders = null;
     }
 }

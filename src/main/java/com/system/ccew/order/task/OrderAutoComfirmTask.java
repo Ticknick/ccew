@@ -1,10 +1,9 @@
 package com.system.ccew.order.task;
 
-import com.delivery.common.dao.OrderDao;
-import com.delivery.common.entity.OrderEntity;
-import com.delivery.common.util.Task;
-import com.delivery.common.util.TimeUnit;
-import com.delivery.common.util.Timer;
+
+import com.system.ccew.common.util.Timer;
+import com.system.ccew.dao.OrderDao;
+import com.system.ccew.entity.OrderEntity;
 
 /**
  * 订单自动确认任务
@@ -23,7 +22,7 @@ public class OrderAutoComfirmTask extends Task {
     Timer timer;
 
 
-    public OrderAutoComfirmTask(String orderId,Timer timer,  OrderDao orderDao) {
+    public OrderAutoComfirmTask(String orderId, Timer timer, OrderDao orderDao) {
         this.orderId = orderId;
         this.dao = orderDao;
         this.timer = timer;
@@ -33,17 +32,17 @@ public class OrderAutoComfirmTask extends Task {
     public void run() {
         super.run();
         OrderEntity orders = dao.findById(orderId);
-        if (orders.getState().equals(OrderEntity.OrderState.TAKE_PARCEL_WAIT_DELIVERY)) {
-            synchronized (orders) {
-                if (orders.getState().equals(OrderEntity.OrderState.TAKE_PARCEL_WAIT_DELIVERY)) {
-                    orders.setState(OrderEntity.OrderState.WAIT_COMMENT);
-                    dao.update(orders);
-                    timer.submit(new OrderAutoCommentTask(orderId, dao), 12, TimeUnit.HOURS);
-
-                }
-            }
-        }
-        orders = null;
-        dao = null;
+//        if (orders.getState().equals(OrderEntity.OrderState.TAKE_PARCEL_WAIT_DELIVERY)) {
+//            synchronized (orders) {
+//                if (orders.getState().equals(OrderEntity.OrderState.TAKE_PARCEL_WAIT_DELIVERY)) {
+//                    orders.setState(OrderEntity.OrderState.WAIT_COMMENT);
+//                    dao.update(orders);
+//                    timer.submit(new OrderAutoCommentTask(orderId, dao), 12, TimeUnit.HOURS);
+//
+//                }
+//            }
     }
+//        orders = null;
+//        dao = null;
+
 }

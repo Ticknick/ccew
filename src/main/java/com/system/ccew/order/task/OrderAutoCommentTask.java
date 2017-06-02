@@ -1,8 +1,8 @@
 package com.system.ccew.order.task;
 
-import com.delivery.common.dao.OrderDao;
-import com.delivery.common.entity.OrderEntity;
-import com.delivery.common.util.Task;
+
+import com.system.ccew.dao.OrderDao;
+import com.system.ccew.entity.OrderEntity;
 
 /**
  * 订单自动评价任务，用来检测订单是否为待评价状态，是的话则自动评价
@@ -25,15 +25,15 @@ public class OrderAutoCommentTask extends Task {
     public void run() {
         super.run();
         OrderEntity order = orderDao.findById(orderId);
-        if (order.getState().equals(OrderEntity.OrderState.WAIT_COMMENT)) {
-            synchronized (order) {
-                if (order.getState().equals(OrderEntity.OrderState.WAIT_COMMENT)) {
-                    order.setState(OrderEntity.OrderState.COMPLETED);
-                    order.setGrade("5");
-                    orderDao.update(order);
-                }
-            }
-        }
+//        if (order.getState().equals(OrderEntity.OrderState.WAIT_COMMENT)) {
+//            synchronized (order) {
+//                if (order.getState().equals(OrderEntity.OrderState.WAIT_COMMENT)) {
+//                    order.setState(OrderEntity.OrderState.COMPLETED);
+//                    order.setGrade("5");
+//                    orderDao.update(order);
+//                }
+//            }
+//        }
         order = null;
         orderDao = null;
     }
