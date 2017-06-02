@@ -18,6 +18,7 @@ import java.util.Map;
  * Created by finderlo on 16-12-17.
  */
 @Transactional
+@SuppressWarnings("unchecked")
 public abstract class AbstractReadDao<T> {
 
     @Autowired
