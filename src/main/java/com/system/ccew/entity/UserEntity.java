@@ -70,7 +70,7 @@ public class UserEntity {
     }
 
     @Basic
-    @Column(name = "user_group")
+    @Column(name = "usergroup")
     public String getId_card() {
         return id_card;
     }
