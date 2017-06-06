@@ -25,17 +25,17 @@ public class OrderDao extends AbstractDao<OrderEntity> {
         return findBy("userId",userId+"");
     }
 
-    public List<OrderEntity> findByBidid(String bidid){
-        return findBy("bidid",bidid);
-    }
+//    public List<OrderEntity> findByBidid(String bidid){
+//        return findBy("bidid",bidid);
+//    }
 
-    public List<OrderEntity> findByIdCard(String idCard){
-        return findBy("idCard",idCard);
-    }
+//    public List<OrderEntity> findByIdCard(String idCard){
+//        return findBy("idCard",idCard);
+//    }
 
-    public List<OrderEntity> findByState(OrderState state){
-        return findBy("state",state.ordinal()+"");
-    }
+//    public List<OrderEntity> findByState(OrderState state){
+//        return findBy("state",state.ordinal()+"");
+//    }
 
 
 }

@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 //@EnableAutoConfiguration
-@ComponentScan("com.system.ccew")
+@ComponentScan("com")
 public class Application {
 //jery
     public static void main(String[] args) {
