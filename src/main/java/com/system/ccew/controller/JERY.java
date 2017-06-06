@@ -19,7 +19,7 @@ import java.lang.Integer;
  * @date 07/05/2017
  */
 @Controller
-public class OrderController {
+public class JERY {
     @Autowired
     OrderDao orderDao;
 
