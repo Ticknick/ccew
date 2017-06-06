@@ -71,7 +71,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
             return true;
         }
 
-        logger.info("user authorization fail, user id is " + model);
+        System.out.println("user authorization fail, user id is " + model);
 
         if (method.getAnnotation(Authorization.class) != null) {
             logger.info("user authorization fail, user token model is " + model);
