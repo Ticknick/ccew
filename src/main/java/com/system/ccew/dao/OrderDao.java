@@ -2,6 +2,7 @@ package com.system.ccew.dao;
 
 import com.system.ccew.entity.OrderEntity;
 import com.system.ccew.entity.OrderState;
+import org.hibernate.Session;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -21,8 +22,13 @@ public class OrderDao extends AbstractDao<OrderEntity> {
 //        }
 //    }
 
+    @SuppressWarnings("unchecked")
     public List<OrderEntity> findByUser(int userId){
-        return findBy("userId",userId+"");
+        //        String hql = " from UsersEntity e where e.usersName like 'xiao%' and e.usersPassword like 'psd%'";
+
+        Session session = sessionFactory.getCurrentSession();
+     return    session.createQuery("from com.system.ccew.entity.OrderEntity  where userId ="+userId).list();
+//        return findBy("userId",userId+"");
     }
 
 //    public List<OrderEntity> findByBidid(String bidid){
