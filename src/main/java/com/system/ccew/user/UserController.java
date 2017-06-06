@@ -69,8 +69,6 @@ public class UserController {
 
     @Autowired
     TokenManager tokenManager;
-    @Autowired
-    UserDao userDao;
 
     @GetMapping("/token")
     @Authorization
