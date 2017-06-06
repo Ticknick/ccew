@@ -16,9 +16,6 @@ import java.util.List;
 @Component
 public class UserDao extends AbstractDao<UserEntity> {
 
-   // public List<UserEntity> findByUserGroup(String group) {
-//        return findBy("usergroup", group);
-//    }
 
     public UserEntity findByPhone(String tel) {
         List<UserEntity> users = findBy("phone", tel);

@@ -67,6 +67,7 @@ public class UserController {
 
 
     @GetMapping("/token")
+    @Authorization
     public Response own(
             @CurrentUser UserEntity user) {
         return Response.ok(user);
