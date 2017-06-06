@@ -24,9 +24,9 @@ public class OrderEntity {
 
 
 
+    @Transient
     private UserEntity user;
 
-    private String create;
 
     @Id
     @Column(name = "id")
@@ -112,15 +112,7 @@ public class OrderEntity {
     }
 
 
-    public void setCreate(String create) {
-        this.create = create;
-    }
 
-    @Basic
-    @Column(name = "create")
-    public String getCreate() {
-        return create;
-    }
 
     @Override
     public boolean equals(Object o) {
