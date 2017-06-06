@@ -22,20 +22,11 @@ public class OrderEntity {
     private OrderState state;
     private String remark;
 
-    private Timestamp create;
+
 
     private UserEntity user;
 
-
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = UserEntity.class)
-    @JoinColumn(name = "user", insertable = false, updatable = false)
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public void setUser(UserEntity user) {
-        this.user = user;
-    }
+    private Timestamp create;
 
     @Id
     @Column(name = "id")
@@ -48,15 +39,7 @@ public class OrderEntity {
         this.id = id;
     }
 
-    public void setCreate(Timestamp create) {
-        this.create = create;
-    }
 
-    @Basic
-    @Column(name = "create")
-    public Timestamp getCreate() {
-        return create;
-    }
 
     @Basic
     @Column(name = "user")
@@ -116,6 +99,27 @@ public class OrderEntity {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = UserEntity.class)
+    @JoinColumn(name = "user", insertable = false, updatable = false)
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+
+    public void setCreate(Timestamp create) {
+        this.create = create;
+    }
+
+    @Basic
+    @Column(name = "create")
+    public Timestamp getCreate() {
+        return create;
     }
 
     @Override

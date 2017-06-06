@@ -5,5 +5,5 @@ package com.system.ccew.entity;
  * @date 02/06/2017
  */
 public enum  OrderState {
-        WAIT,ACCEPT
+        WAIT,ACCEPT,SUCCESS,FAIL
 }
