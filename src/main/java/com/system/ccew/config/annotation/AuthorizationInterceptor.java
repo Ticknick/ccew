@@ -27,6 +27,11 @@ import java.lang.reflect.Method;
 @Component
 public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     private Logger logger = LoggerFactory.getLogger(AuthorizationInterceptor.class);
+
+    public AuthorizationInterceptor(){
+        logger.info("aaaa   嗷嗷啊啊啊啊啊啊啊啊啊");
+    }
+
     @Autowired
     private TokenManager manager;
 
