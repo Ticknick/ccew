@@ -70,6 +70,7 @@ public class UserController {
     @Authorization
     public Response own(
             @CurrentUser UserEntity user) {
+        logger.info(user.toString());
         return Response.ok(user);
     }
 }
