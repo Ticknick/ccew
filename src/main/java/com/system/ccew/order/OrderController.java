@@ -110,7 +110,7 @@ public class OrderController {
         order.setState(OrderState.WAIT);
         order.setUser(user);
 
-        order.setCreate(new Timestamp(System.currentTimeMillis()));
+        order.setCreate(new Timestamp(System.currentTimeMillis()).toString());
 
         orderDao.save(order);
         return Response.ok(order);

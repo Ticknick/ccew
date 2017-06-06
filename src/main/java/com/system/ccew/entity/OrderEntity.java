@@ -26,7 +26,7 @@ public class OrderEntity {
 
     private UserEntity user;
 
-    private Timestamp create;
+    private String create;
 
     @Id
     @Column(name = "id")
@@ -112,13 +112,13 @@ public class OrderEntity {
     }
 
 
-    public void setCreate(Timestamp create) {
+    public void setCreate(String create) {
         this.create = create;
     }
 
     @Basic
     @Column(name = "create")
-    public Timestamp getCreate() {
+    public String getCreate() {
         return create;
     }
 
