@@ -64,10 +64,14 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
                 }
                 logger.info("admin authorization success");
             }
+
+
             logger.info("user authorization ok, user id is " + model.getUid());
             request.setAttribute(Constant.CURRENT_USER_ID, model.getUid());
             return true;
         }
+
+        logger.info("user authorization fail, user id is " + model);
 
         if (method.getAnnotation(Authorization.class) != null) {
             logger.info("user authorization fail, user token model is " + model);
