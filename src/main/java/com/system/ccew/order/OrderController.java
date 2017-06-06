@@ -109,7 +109,6 @@ public class OrderController {
         order.setBidid_psd(bidid_psd);
         order.setIdcard(id_card);
         order.setState(OrderState.WAIT);
-        order.setUser(user);
 
 //        order.setCreate(System.currentTimeMillis()+"");
 

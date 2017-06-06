@@ -26,7 +26,6 @@ public class OrderEntity {
 
 
 
-//    @Transient
     private UserEntity user;
 
 
