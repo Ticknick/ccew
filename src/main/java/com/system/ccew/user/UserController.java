@@ -7,6 +7,8 @@ import com.system.ccew.config.annotation.CurrentUser;
 import com.system.ccew.constant.HttpStatus;
 import com.system.ccew.dao.UserDao;
 import com.system.ccew.entity.UserEntity;
+import com.system.ccew.token.TokenManager;
+import com.system.ccew.token.TokenModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,12 +67,27 @@ public class UserController {
         return Response.ok(userDao.findById(uid));
     }
 
+    @Autowired
+    TokenManager tokenManager;
+    @Autowired
+    UserDao userDao;
 
     @GetMapping("/token")
     @Authorization
     public Response own(
-            @CurrentUser UserEntity user) {
-        logger.info(user.toString());
-        return Response.ok(user);
+            @CurrentUser UserEntity user,@RequestParam String token) {
+        //todo there is some error, so
+        TokenModel model = tokenManager.getToken(token);
+
+        logger.info("own:"+model);
+        if (!tokenManager.checkToken(model)){
+            return Response.error(HttpStatus.UNAUTHORIZATON,"认证失败");
+        }
+        UserEntity userEntity = userDao.findById(model.getUid());
+        logger.info("own:"+userEntity);
+        return Response.ok(userEntity);
+
+//        logger.info(user.toString());
+//        return Response.ok(user);
     }
 }
