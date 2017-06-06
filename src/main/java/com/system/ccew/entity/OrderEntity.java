@@ -1,6 +1,8 @@
 package com.system.ccew.entity;
 
 import com.google.gson.Gson;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -101,6 +103,7 @@ public class OrderEntity {
         this.remark = remark;
     }
 
+    @NotFound(action = NotFoundAction.IGNORE)
     @OneToOne(cascade = CascadeType.DETACH, targetEntity = UserEntity.class,optional = true)
     @JoinColumn(name = "user", insertable = false, updatable = false)
     public UserEntity getUser() {
