@@ -56,6 +56,7 @@ public class TokenController {
         }
 
         tokenModel = tokenManager.createToken(user.getId());
+
         return Response.ok(tokenModel);
 
     }
