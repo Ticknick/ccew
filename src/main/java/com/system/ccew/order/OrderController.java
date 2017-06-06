@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -108,6 +109,8 @@ public class OrderController {
         order.setIdcard(id_card);
         order.setState(OrderState.WAIT);
         order.setUser(user);
+
+        order.setCreate(new Timestamp(System.currentTimeMillis()));
 
         orderDao.save(order);
         return Response.ok(order);

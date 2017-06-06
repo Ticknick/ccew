@@ -3,6 +3,7 @@ package com.system.ccew.entity;
 import com.google.gson.Gson;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
@@ -20,6 +21,8 @@ public class OrderEntity {
     private String bidid_psd;
     private OrderState state;
     private String remark;
+
+    private Timestamp create;
 
     private UserEntity user;
 
@@ -43,6 +46,16 @@ public class OrderEntity {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public void setCreate(Timestamp create) {
+        this.create = create;
+    }
+
+    @Basic
+    @Column(name = "create")
+    public Timestamp getCreate() {
+        return create;
     }
 
     @Basic
