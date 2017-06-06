@@ -96,11 +96,12 @@ public class OrderController {
             @RequestParam String bidid,
             @RequestParam String bidid_psd) {
 
-        user.setName(name);
-        user.setPhone(phone);
-        user.setId_card(id_card);
-
-        userDao.update(user);
+//        if (user!=null)
+//        user.setName(name);
+//        user.setPhone(phone);
+//        user.setId_card(id_card);
+//
+//        userDao.update(user);
 
         OrderEntity order = new OrderEntity();
         order.setUserId(user.getId());
