@@ -2,6 +2,8 @@ package com.system.ccew.config.annotation;
 
 import com.system.ccew.constant.Constant;
 import com.system.ccew.dao.UserDao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
@@ -22,6 +24,8 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
     @Autowired
     UserDao userDao;
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
         if (parameter.hasParameterAnnotation(CurrentUser.class)) {
@@ -32,10 +36,13 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
 
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
+        logger.info("begin to get user to parameter because have @"+CurrentUser.class.getName()+" annotation");
 
         //取出存入的用户ID
         String currentUserId = (String) webRequest.getAttribute(Constant.CURRENT_USER_ID, RequestAttributes.SCOPE_REQUEST);
+
         if (currentUserId != null) {
+
             return userDao.findById(currentUserId);
         }
         return new MissingServletRequestPartException(Constant.CURRENT_USER_ID);
