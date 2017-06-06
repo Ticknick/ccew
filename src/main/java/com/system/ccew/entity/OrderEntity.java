@@ -25,7 +25,7 @@ public class OrderEntity {
 
 
     @OneToOne(cascade = CascadeType.DETACH, targetEntity = UserEntity.class)
-    @JoinColumn(name = "userid", insertable = false, updatable = false)
+    @JoinColumn(name = "user", insertable = false, updatable = false)
     public UserEntity getUser() {
         return user;
     }
