@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @date 06/05/2017
  */
 @SpringBootApplication
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 @ComponentScan("com.system.ccew")
 public class Application {
 //jery
