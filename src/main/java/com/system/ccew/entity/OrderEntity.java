@@ -24,7 +24,7 @@ public class OrderEntity {
 
 
 
-    @Transient
+//    @Transient
     private UserEntity user;
 
 
@@ -101,7 +101,7 @@ public class OrderEntity {
         this.remark = remark;
     }
 
-    @OneToOne(cascade = CascadeType.DETACH, targetEntity = UserEntity.class)
+    @OneToOne(cascade = CascadeType.DETACH, targetEntity = UserEntity.class,optional = true)
     @JoinColumn(name = "user", insertable = false, updatable = false)
     public UserEntity getUser() {
         return user;
