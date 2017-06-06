@@ -27,14 +27,16 @@ import java.lang.reflect.Method;
 @Component
 public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 
-    @Autowired
-    com.system.ccew.common.LoggerFactory loggerFactory;
 
     private Logger logger ;
 
     public AuthorizationInterceptor(){
         logger.info("aaaa   嗷嗷啊啊啊啊啊啊啊啊啊");
-        logger = loggerFactory.getLogger(com.system.ccew.common.LoggerFactory.class);
+    }
+
+    @Autowired
+    public void setLogger(com.system.ccew.common.LoggerFactory factory){
+        logger = factory.getLogger(com.system.ccew.common.LoggerFactory.class);
     }
 
     @Autowired
