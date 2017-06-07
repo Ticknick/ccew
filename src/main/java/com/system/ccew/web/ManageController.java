@@ -20,7 +20,7 @@ public class ManageController {
     public String hello2() {
         return "caffeine/complaints";
     }
-    @RequestMapping("/message/new")
+    @RequestMapping("/caffeine/new")
     public String hello3() {
         return "caffeine/new";
     }
