@@ -22,7 +22,7 @@ public class ManageController {
     }
     @RequestMapping("/message/new")
     public String hello3() {
-        return "message/new";
+        return "caffeine/new";
     }
     @RequestMapping("/caffeine/query")
     public String hello4() {
