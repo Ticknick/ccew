@@ -30,13 +30,18 @@
         </header>
         <section>
             <div class="content-result myTable">
+                <form></form>
                 <table id="reviewList">
                     <thead>
                     <tr>
-                        <th>审核单编号</th>
-                        <th>用户</th>
-                        <th>创建日期</th>
-                        <th>操作</th>
+                        <th>姓名</th>
+                        <th>身份证</th>
+                        <th>投标号</th>
+                        <th>投标密码</th>
+                        <th>手机号</th>
+                        <th>原状态</th>
+                        <th>修改状态</th>
+                        <th>修改</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -44,7 +49,21 @@
                         <td>1</td>
                         <td>1</td>
                         <td>1</td>
-                        <td onclick="openPop()">1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td><select>
+                            <option value="0">等待通过</option>
+                            <option value="1">开始服务</option>
+                            <option value="2">成功</option>
+                            <option value="3">一次失败</option>
+                            <option value="4">二次失败</option>
+                            <option value="5">三次失败</option>
+                            <option value="6">四次失败</option>
+                            <option value="7">五次失败</option>
+                            <option value="8">最终失败</option>
+                        </select></td>
+                        <td><button>提交</button></td>
                     </tr>
                     </tbody>
                 </table>

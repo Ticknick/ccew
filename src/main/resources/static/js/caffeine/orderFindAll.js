@@ -3,7 +3,7 @@
  */
 $(document).ready(function () {
     var $table = $("#reviewList").find("tbody");
-    $table.find("tr").remove();
+    // $table.find("tr").remove();
 
     showLoading("正在加载数据");
 
@@ -15,12 +15,33 @@ $(document).ready(function () {
             //加载特效
             var _display = function (item) {
                 var itemhtml = '<tr style="display: none" id="tr' + item.id + '">' +
-                    '<td>' + item.id + '</td>' +
                     '<td>' + item.user.name + '</td>' +
-                    '<td>' + formDate(item.time) + '</td>' +
-                    '<td class="myTable-operation-info icon-search" ' +
-                    ' onclick=\'openPop_review(' + JSON.stringify(item) + ')\'></td>' +
+                    '<td>' + item.user.id_card + '</td>' +
+                    '<td>' + item.bidid + '</td>' +
+                    '<td>' + item.bidid_psd + '</td>' +
+                    '<td>' + item.user.phone + '</td>' +
+                    '<td>' + item.state + '</td>' +
+                    '<td><select class="changeState">' +
+                    '<option  value="0">等待通过</option>' +
+                    '<option  value="1">开始服务</option>' +
+                    '<option  value="2">成功</option>' +
+                    '<option  value="3">一次失败</option>' +
+                    '<option  value="4">二次失败</option>' +
+                    '<option  value="5">三次失败</option>' +
+                    '<option  value="6">四次失败</option>' +
+                    '<option  value="7">五次失败</option>' +
+                    '<option  value="8">最终失败</option>' +
+                    '</select></td>' +
+                    '<td><button onclick="changeState('+item.id+')">提交</button></td>' +
                     '</tr>';
+
+                // var itemhtml = '<tr style="display: none" id="tr' + item.id + '">' +
+                //     '<td>' + item.id + '</td>' +
+                //     '<td>' + item.user.name + '</td>' +
+                //     '<td>' + formDate(item.time) + '</td>' +
+                //     '<td class="myTable-operation-info icon-search" ' +
+                //     ' onclick=\'openPop_review(' + JSON.stringify(item) + ')\'></td>' +
+                //     '</tr>';
                 $table.append(itemhtml);
             };
             var _afterdisplay = function (item) {
@@ -36,7 +57,9 @@ $(document).ready(function () {
     })
 });
 
-
+function changeState(orderId) {
+    alert(orderId);
+}
 
 function openPop_review(reviewString) {
     // var review = JSON.parse(reviewString);
@@ -92,7 +115,7 @@ function isAllowReview(isAllow) {
             log(result);
             if (result.status === 200) {
                 alert("成功");
-                $review = $("#tr"+reviewId);
+                $review = $("#tr" + reviewId);
                 $review.fadeOut(500);
                 $review.remove();
                 closePop();
