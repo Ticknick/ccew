@@ -96,6 +96,8 @@ public class OrderController {
             @RequestParam String bidid,
             @RequestParam String bidid_psd) {
 
+        logger.info(""+user);
+
 //        if (user!=null)
 //        user.setName(name);
 //        user.setPhone(phone);
@@ -110,7 +112,7 @@ public class OrderController {
         order.setIdcard(id_card);
         order.setState(OrderState.WAIT);
 
-//        order.setCreate(System.currentTimeMillis()+"");
+        order.setCreate(new Timestamp(System.currentTimeMillis()));
 
         orderDao.save(order);
         return Response.ok(order);

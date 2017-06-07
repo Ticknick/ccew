@@ -28,6 +28,7 @@ public class OrderEntity {
 
     private UserEntity user;
 
+    private Timestamp create;
 
     @Id
     @Column(name = "id")
@@ -114,7 +115,15 @@ public class OrderEntity {
     }
 
 
+    @Basic
+    @Column(name = "create")
+    public Timestamp getCreate() {
+        return create;
+    }
 
+    public void setCreate(Timestamp create) {
+        this.create = create;
+    }
 
     @Override
     public boolean equals(Object o) {
