@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>管理</title>
+
+    <link href="../../static/css/all.css" rel="stylesheet" type="text/css"
+          th:href="@{/css/all.css}"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="../../static/js/main.js" th:src="@{/js/main.js}"></script>
+    <script src="../../static/js/review.js" th:src="@{/js/review.js}"></script>
+
+</head>
+<body>
+
+<div/>
+
+<!--加载图标-->
+<div id="load" class="load">
+    <img id="loadGif" th:src="@{/picture/loading.gif}"/>
+</div>
+<div id="header" th:replace="fragments/header :: header"></div>
+
+
+<div class="content current">
+    <div style="width: 65em;margin: auto">
+        <header>
+            <h2>审核</h2>
+        </header>
+        <section>
+            <div class="content-result myTable">
+                <table id="reviewList">
+                    <thead>
+                    <tr>
+                        <th>审核单编号</th>
+                        <th>用户</th>
+                        <th>创建日期</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td onclick="openPop()">1</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <div class="pop-bg">
+        <div class="pop myTable" style="top: 5em;width: 30em;padding: 5em;height: 30em;">
+            <div class="pop-close">
+                <div class="close_button" onclick="closePop()">
+                    <div class="close_button-icon"></div>
+                </div>
+            </div>
+            <section style="text-align: center;display: none">
+            <label style="float: left">审核单编号:<span id="reviewId"></span></label>
+            </section>
+
+            <div style="height: 28em;overflow-x:hidden;overflow-y: scroll;width: 30em;margin-top: 2em">
+                <table id="reviewFrom">
+                    <tr>
+                        <td>用户姓名：</td>
+                        <td id="username"></td>
+                    </tr>
+                    <tr>
+                        <td>身份证号：</td>
+                        <td id="userIdCard"></td>
+                    </tr>
+                    <tr>
+                        <td>身份证照片：</td>
+                        <td style="height: 7em" id="userImage"></td>
+                    </tr>
+                    <tr>
+                        <td>信用值：</td>
+                        <td id="creditValue"></td>
+                    </tr>
+                </table>
+                <form style="margin-top: 2em;margin-left: 5em">
+                    <label>审核备注：<textarea style="height: 7em; width: 20em" id="remark"></textarea></label>
+                </form>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button onclick="isAllowReview(true)">通过</button>
+                        </td>
+                        <td></td>
+                        <td>
+                            <button onclick="isAllowReview(false)">不通过</button>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <div th:replace="fragments/footer :: footer">
+    </div>
+</div>
+<!--<div id="footer" th:replace="fragments/footer :: footer"></div>-->
+</body>
+</html>
