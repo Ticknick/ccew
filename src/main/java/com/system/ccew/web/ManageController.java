@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ManageController {
 
 
-    @RequestMapping("/sed/examine")
+    @RequestMapping("/caffeine/examine")
     public String hello() {
-        return "sed/examine";
+        return "caffeine/examine";
     }
 
-    @RequestMapping("/sed/complaints")
+    @RequestMapping("/caffeine/complaints")
     public String hello2() {
-        return "sed/complaints";
+        return "caffeine/complaints";
     }
     @RequestMapping("/message/new")
     public String hello3() {
         return "message/new";
     }
-    @RequestMapping("/sed/query")
+    @RequestMapping("/caffeine/query")
     public String hello4() {
-        return "sed/query";
+        return "caffeine/query";
     }
 
 }
