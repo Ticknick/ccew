@@ -156,21 +156,18 @@ public class OrderController {
     @Authorization
     @Transactional(rollbackFor = Exception.class)
     public Response modify(
-            @CurrentUser UserEntity user,
             @PathVariable String order_id,
-            @EnumParam OrderState state,
-            @RequestParam(required = false) String grade) {
+            @EnumParam OrderState state) {
         logger.info("/orders/" + order_id + "/process  PUT  state: " + state + ", user_id: " + user.getId());
 
         OrderEntity order = orderDao.findById(order_id);
         Assert.notNull(order, 400, "wrong order id");
 
-//        if (!order.getState().equals(OrderState.WAIT)) {
-//            Assert.isTrue(user.getUid().equals(order.getRecipientId())
-//                            || user.getUid().equals(order.getReplacementId()),
-//                    "user only can modify your participate order ");
-//        }
-        return Response.error();
+        order.setState(state);
+
+        orderDao.update(order);
+
+        return Response.ok(order);
     }
 
 
