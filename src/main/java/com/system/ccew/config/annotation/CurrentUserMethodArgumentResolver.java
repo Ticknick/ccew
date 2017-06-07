@@ -22,9 +22,9 @@ import org.springframework.web.multipart.support.MissingServletRequestPartExcept
 public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentResolver {
 
     @Autowired
-    UserDao userDao;
+    private UserDao userDao;
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
@@ -36,7 +36,7 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
 
     @Override
     public Object resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer, NativeWebRequest webRequest, WebDataBinderFactory binderFactory) throws Exception {
-        logger.info("begin to get user to parameter because have @"+CurrentUser.class.getName()+" annotation");
+        logger.info("resolveArgument():begin to get user to parameter because have @" + CurrentUser.class.getName() + " annotation");
 
         //取出存入的用户ID
         String currentUserId = (String) webRequest.getAttribute(Constant.CURRENT_USER_ID, RequestAttributes.SCOPE_REQUEST);
@@ -44,6 +44,7 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
         if (currentUserId != null) {
             return userDao.findById(currentUserId);
         }
+        logger.info("resolveArgument(): user not found" + ", uid: " + currentUserId);
         return new MissingServletRequestPartException(Constant.CURRENT_USER_ID);
     }
 }

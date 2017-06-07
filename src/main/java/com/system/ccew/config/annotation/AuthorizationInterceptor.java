@@ -30,11 +30,6 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 
     private Logger logger = LoggerFactory.getLogger(com.system.ccew.common.LoggerFactory.class);
 
-    public AuthorizationInterceptor(){
-        logger.info("aaaa   嗷嗷啊啊啊啊啊啊啊啊啊");
-    }
-
-
     @Autowired
     private TokenManager manager;
 
@@ -44,7 +39,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
         logger.info("preHandle: request:" + request.getRequestURI() + "  " + request.getMethod());
-        System.out.println("AAAAAAAAAAAA"+"preHandle: request:" + request.getRequestURI() + "  " + request.getMethod());
+
 
 
         if (!(handler instanceof HandlerMethod)) {

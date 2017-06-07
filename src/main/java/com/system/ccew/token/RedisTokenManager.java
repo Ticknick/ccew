@@ -32,7 +32,7 @@ public class RedisTokenManager implements TokenManager {
     public TokenModel createToken(int uid) {
         String token = UUID.randomUUID().toString().replace("_", "");
         token = "ccew_"+uid + "_" + token;
-        logger.info("create token. uid:" + uid + "  token:" + token);
+        logger.info("createToken(). uid:" + uid + "  token:" + token);
         TokenModel tokenModel = new TokenModel(uid, token);
         //set expire time
         redis.boundValueOps(uid+"").set(token, Constant.TOKEN_EXPIRES_HOUR, TimeUnit.HOURS);
@@ -52,7 +52,7 @@ public class RedisTokenManager implements TokenManager {
         }
 
         redis.boundValueOps(model.getUid()+"").expire(Constant.TOKEN_EXPIRES_HOUR, TimeUnit.HOURS);
-        logger.info("check model is right, update the token expires time. uid :" + model.getUid());
+        logger.info("checkToken():check model is right, update the token expires time. uid :" + model.getUid());
         return true;
     }
 
@@ -63,7 +63,7 @@ public class RedisTokenManager implements TokenManager {
         }
         String[] param = authentication.split("_");
         if (param.length != 3) {
-            logger.error("authentication is not format[uid_uuid]");
+            logger.error("getToken():authentication is not format[uid_uuid]");
             return null;
         }
 
