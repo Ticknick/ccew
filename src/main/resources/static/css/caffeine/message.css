@@ -31,7 +31,7 @@ ul.listNav {
 
 .listNav li:hover{
     color: #f1f1f1;
-    background: #1abc9c;
+    background: #1ab2e8;
 }
 .listNav li:hover>a{
     color: #f1f1f1;
@@ -45,7 +45,7 @@ ul.listNav {
     top: 0;
     padding: 0.5em 0.5em;
     width: 6em;
-    /*border: 0.1em solid #1abc9c;*/
+    /*border: 0.1em solid #1ab2e8;*/
     border-radius: 0.5em;
     background: #f5f5f5;
     transition: all 0.3s ease-out;

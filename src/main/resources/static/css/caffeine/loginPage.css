@@ -19,7 +19,7 @@ body {
 .login {
     font-size: 1.2em;
     position: relative;
-    top: 30%;
+    top: 23%;
     margin: auto;
     width: 25em;
     padding: 2em 0;
@@ -46,22 +46,22 @@ body {
     margin-left: -1.2em;
     border-radius: 0.5em;
     border: 0.2em solid rgba(234, 237, 237, 0);
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0);
 }
 
 .login input[type="submit"], input[type="button"] {
     margin-left: 0;
     width: 10em;
     color: white;
-    background: #1abc9c;
+    background: #1ab2e8;
 }
 
 .login input:focus + .icon-after-user {
-    color: #1abc9c;
+    color: #1ab2e8;
 }
 
 .login input:focus + .icon-after-lock {
-    color: #1abc9c;
+    color: #1ab2e8;
 }
 
 .icon-after-user, .icon-after-lock {

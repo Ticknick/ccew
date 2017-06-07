@@ -20,11 +20,11 @@
 
 /*悬浮颜色*/
 .navBar li:hover, li:hover > a {
-    color: #19ac7f;
+    color: #1ab2e8;
 }
 
 .navBar li:hover .arrow {
-    border-top-color: #19ac7f;
+    border-top-color: #1ab2e8;
     transform: rotate(180deg);
 }
 
@@ -150,6 +150,6 @@
 }
 
 .navBar dd:hover > a {
-    color: #19ac7f;
+    color: #1ab2e8;
     padding-left: 1.5em;
 }

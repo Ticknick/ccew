@@ -26,12 +26,12 @@
     right: 0.2em;
     width: 1.6em;
     transform: rotate(-45deg);
-    background: #2fe2bf;
+    background: #1ab2e8;
 }
 
 .close_button:hover .close_button-icon::after {
     right: 0.2em;
     width: 1.6em;
     transform: rotate(45deg);
-    background: #2fe2bf;
+    background: #1ab2e8;
 }

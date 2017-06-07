@@ -49,7 +49,7 @@
     transition: background 0.5s;
 }
 #back_top:hover{
-    background: #1abc9c;
+    background: #1ab2e8;
 }
 
 #back_top::before,#back_top::after{

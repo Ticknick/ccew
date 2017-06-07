@@ -35,23 +35,23 @@
     color: #f4f4f4;
     font-size: 1.1em;
     font-weight: normal;
-    background: #16A085;
+    background: #1ab2e8;
     cursor: pointer;
 }
 
 .myTable-operation {
-    color: #16A085;
+    color: #1ab2e8;
     transition: background linear 0.3s;
 }
 
 .myTable-operation:hover {
     color: white;
-    background: #16A085;
+    background: #1ab2e8;
     font-size: 1.5em;
 }
 
 .myTable-operation-danger {
-    color: #16A085;
+    color: #1ab2e8;
     transition: background linear 0.3s;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .myTable-operation-info {
-    color: #16A085;
+    color: #1ab2e8;
     transition: background linear 0.3s;
 }
 
@@ -73,7 +73,7 @@
     font-size: 1.5em;
 }
 .myTable-operation-warning {
-    color: #16A085;
+    color: #1ab2e8;
     transition: background linear 0.3s;
 }
 
