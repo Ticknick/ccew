@@ -87,7 +87,7 @@ function changeState(orderId) {
     $.ajax({
         url: "/orders/" + orderId + "/process",
         type: "put",
-        data: {"state": state},
+        data: {"token":getCookie("token"),"state": state},
         success: function (result) {
             //加载特效
             if (result.status == 200) {
