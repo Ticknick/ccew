@@ -158,7 +158,7 @@ public class OrderController {
     public Response modify(
             @PathVariable String order_id,
             @EnumParam OrderState state) {
-        logger.info("/orders/" + order_id + "/process  PUT  state: " + state + ", user_id: " + user.getId());
+//        logger.info("/orders/" + order_id + "/process  PUT  state: " + state + ", user_id: " + user.getId());
 
         OrderEntity order = orderDao.findById(order_id);
         Assert.notNull(order, 400, "wrong order id");
