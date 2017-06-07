@@ -58,7 +58,7 @@ public class OrderController {
 //    }
 
     @GetMapping
-    @Authorization
+//    @Authorization
     public Response all(){
         return Response.ok(orderDao.findAll());
     }
