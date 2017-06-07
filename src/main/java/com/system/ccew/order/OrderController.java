@@ -94,14 +94,14 @@ public class OrderController {
             @RequestParam String bidid,
             @RequestParam String bidid_psd) {
 
-        logger.info("aAAAAAAAA"+user);
+        logger.info("newOne():" + user);
 
-//        if (user!=null)
-//        user.setName(name);
-//        user.setPhone(phone);
-//        user.setId_card(id_card);
-//
-//        userDao.update(user);
+        if (user != null) {
+            user.setName(name);
+            user.setPhone(phone);
+            user.setId_card(id_card);
+            userDao.update(user);
+        }
 
         OrderEntity order = new OrderEntity();
         order.setUserId(user.getId());
