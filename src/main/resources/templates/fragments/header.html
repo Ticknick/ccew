@@ -36,27 +36,11 @@
                     <li th:classappend="${page == 'tasks' ? 'active' : ''}">
                         <a href="#" th:href="@{/caffeine/new}">消息</a>
                     </li>
-
-                    <!--<li th:classappend="${page == 'tasks' ? 'active' : ''}" sec:authorize="hasRole('ROLE_ADMIN')">-->
-                        <!--<a href="#">管理</a>-->
-                        <!--<span class="arrow"></span>-->
-                        <!--<dl>-->
-                            <!--<dd><a href="#" th:href="@{/manage/outStorage}">出库</a></dd>-->
-                            <!--<dd><a href="#" th:href="@{/newMessage}">新建消息</a></dd>-->
-                            <!--<dd><a href="#" th:href="@{/manage/itemindate}">有效期管理</a></dd>-->
-                            <!--<dd><a href="#">库存管理</a></dd>-->
-                            <!--<dd><a href="#">统计信息</a></dd>-->
-                        <!--</dl>-->
-                    <!--</li>-->
                 </ul>
             </nav>
         </div>
         <div class="navBar-user">
             <ul class="nav">
-                <!--/*@thymesVar id="user" type="com.repository.entity.UsersEntity"*/-->
-                <!--<li class="icon-user" th:if="${session.user!= null}">-->
-                    <!--<a href="#" th:text="${session.user.usersName}">XXX</a>-->
-                <!--</li>-->
                 <li class="">
                     <a href="/login" th:href="@{/}">退出</a>
                 </li>
