@@ -42,7 +42,6 @@ public class CurrentUserMethodArgumentResolver implements HandlerMethodArgumentR
         String currentUserId = (String) webRequest.getAttribute(Constant.CURRENT_USER_ID, RequestAttributes.SCOPE_REQUEST);
 
         if (currentUserId != null) {
-
             return userDao.findById(currentUserId);
         }
         return new MissingServletRequestPartException(Constant.CURRENT_USER_ID);
