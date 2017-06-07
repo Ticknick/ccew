@@ -85,7 +85,7 @@ function changeState(orderId) {
     var state = $("#tr" + orderId).find("select").val();
     // alert(orderId + "  " + state);
     $.ajax({
-        url: "/" + orderId + "/process",
+        url: "/orders/" + orderId + "/process",
         type: "put",
         data: {"state": state},
         success: function (result) {
