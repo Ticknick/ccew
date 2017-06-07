@@ -19,7 +19,7 @@ body {
 .login {
     font-size: 1.2em;
     position: relative;
-    top: 23%;
+    /*top: 5em;*/
     margin: auto;
     width: 25em;
     padding: 2em 0;
