@@ -5,8 +5,8 @@
     <meta charset="UTF-8"/>
     <title>header</title>
 
-    <link href="../../static/css/all.css" rel="stylesheet" type="text/css"/>
-    <script src="../../static/js/main.js"></script>
+    <link href="../../static/css/caffeine/all.css" rel="stylesheet" type="text/css"/>
+    <script src="../../static/js/caffeine/main.js"></script>
 </head>
 <body>
 <div class="navBar" th:fragment="header">
@@ -22,19 +22,19 @@
             <nav>
                 <ul class="nav">
                     <li th:classappend="${page == 'home' ? 'active' : ''}">
-                        <a href="#" th:href="@{/sed/examine}">审核</a>
+                        <a href="#" th:href="@{/caffeine/examine}">审核</a>
                     </li>
 
                     <li th:classappend="${page == 'messages' ? 'active' : ''}" sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a href="#" th:href="@{/sed/complaints}">申诉</a>
+                        <a href="#" th:href="@{/caffeine/complaints}">申诉</a>
                     </li>
 
                     <li th:classappend="${page == 'home' ? 'active' : ''}">
-                        <a href="#" th:href="@{/sed/query}">查询</a>
+                        <a href="#" th:href="@{/caffeine/query}">查询</a>
                     </li>
 
                     <li th:classappend="${page == 'tasks' ? 'active' : ''}">
-                        <a href="#" th:href="@{/message/new}">消息</a>
+                        <a href="#" th:href="@{/caffeine/new}">消息</a>
                     </li>
 
                     <!--<li th:classappend="${page == 'tasks' ? 'active' : ''}" sec:authorize="hasRole('ROLE_ADMIN')">-->
@@ -58,7 +58,7 @@
                     <a href="#" th:text="${session.user.usersName}">XXX</a>
                 </li>
                 <li class="icon-exit">
-                    <a href="/login" th:href="@{/login/signin}">Logout</a>
+                    <a href="/login" th:href="@{/caffeine/signin}">Logout</a>
                 </li>
             </ul>
         </div>
