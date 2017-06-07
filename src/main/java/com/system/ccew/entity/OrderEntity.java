@@ -154,8 +154,8 @@ public class OrderEntity {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return new Gson().toJson(this);
-    }
+//    @Override
+//    public String toString() {
+//        return new Gson().toJson(this);
+//    }
 }
