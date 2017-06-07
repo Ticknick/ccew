@@ -2,7 +2,6 @@ package com.system.ccew.order;
 
 import com.system.ccew.common.Response;
 import com.system.ccew.common.util.Assert;
-import com.system.ccew.config.annotation.AdminAuthorization;
 import com.system.ccew.config.annotation.Authorization;
 import com.system.ccew.config.annotation.CurrentUser;
 import com.system.ccew.config.annotation.EnumParam;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import static com.system.ccew.constant.HttpStatus.WRONG_AUGUMENT;
@@ -96,7 +94,7 @@ public class OrderController {
             @RequestParam String bidid,
             @RequestParam String bidid_psd) {
 
-        logger.info(""+user);
+        logger.info("aAAAAAAAA"+user);
 
 //        if (user!=null)
 //        user.setName(name);
@@ -112,7 +110,7 @@ public class OrderController {
         order.setIdcard(id_card);
         order.setState(OrderState.WAIT);
 
-        order.setCreate(new Timestamp(System.currentTimeMillis()));
+        order.setCreateTime(new Timestamp(System.currentTimeMillis()));
 
         orderDao.save(order);
         return Response.ok(order);

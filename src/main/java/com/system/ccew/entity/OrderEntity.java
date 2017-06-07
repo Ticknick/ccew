@@ -28,7 +28,7 @@ public class OrderEntity {
 
     private UserEntity user;
 
-    private Timestamp create;
+    private Timestamp createTime;
 
     @Id
     @Column(name = "id")
@@ -116,13 +116,13 @@ public class OrderEntity {
 
 
     @Basic
-    @Column(name = "create")
-    public Timestamp getCreate() {
-        return create;
+    @Column(name = "create_time")
+    public Timestamp getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate(Timestamp create) {
-        this.create = create;
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
     }
 
     @Override
