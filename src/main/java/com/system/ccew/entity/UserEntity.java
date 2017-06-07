@@ -106,9 +106,9 @@ public class UserEntity {
         result = 31 * result + (id_card != null ? id_card.hashCode() : 0);
         return result;
     }
-//
-//    @Override
-//    public String toString() {
-//        return new Gson().toJson(this);
-//    }
+
+    @Override
+    public String toString() {
+        return new Gson().toJson(this);
+    }
 }
