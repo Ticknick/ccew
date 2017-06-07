@@ -2,11 +2,13 @@
  * Created by 22340 on 2017/5/31.
  */
 $(document).ready(function () {
+    showLoading("正在加载数据");
+    getOrders();
+});
+
+function getOrders() {
     var $table = $("#reviewList").find("tbody");
     $table.find("tr").remove();
-
-    showLoading("正在加载数据");
-
     $.ajax({
         url: "/orders",
         type: "get",
@@ -34,14 +36,6 @@ $(document).ready(function () {
                     '</select></td>' +
                     '<td><button onclick="changeState(' + item.id + ')">提交</button></td>' +
                     '</tr>';
-
-                // var itemhtml = '<tr style="display: none" id="tr' + item.id + '">' +
-                //     '<td>' + item.id + '</td>' +
-                //     '<td>' + item.user.name + '</td>' +
-                //     '<td>' + formDate(item.time) + '</td>' +
-                //     '<td class="myTable-operation-info icon-search" ' +
-                //     ' onclick=\'openPop_review(' + JSON.stringify(item) + ')\'></td>' +
-                //     '</tr>';
                 $table.append(itemhtml);
             };
             var _afterdisplay = function (item) {
@@ -56,7 +50,7 @@ $(document).ready(function () {
             hideLoading();
         }
     })
-});
+}
 
 function getState(num) {
     switch (num) {
@@ -87,11 +81,12 @@ function changeState(orderId) {
     $.ajax({
         url: "/orders/" + orderId + "/process",
         type: "put",
-        data: {"token":getCookie("token"),"state": state},
+        data: {"token": getCookie("token"), "state": state},
         success: function (result) {
             //加载特效
             if (result.status == 200) {
                 alert("成功");
+                getOrders();
             } else {
                 alert("失败");
             }
