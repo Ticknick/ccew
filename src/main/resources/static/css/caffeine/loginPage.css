@@ -48,7 +48,7 @@ body {
     margin-left: -1.2em;
     border-radius: 0.5em;
     border: 0.2em solid rgba(234, 237, 237, 0);
-    background: rgba(255, 255, 255, 0);
+    background: rgba(255, 255, 255, 0) !important;
 }
 
 input:-moz-placeholder {/* Mozilla Firefox 4 to 18*/
