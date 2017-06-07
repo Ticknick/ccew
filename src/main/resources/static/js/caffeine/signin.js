@@ -2,12 +2,22 @@
  * Created by 22340 on 2016/11/27.
  */
 
-// var GLOBAL = {};
+
 
 window.onload = function () {
     document.body.style.fontSize = screen.width * 0.01 + "px";
     document.body.style.display = "block";
+
+    rotate();
 };
+function rotate() {
+    var deg = 0;
+    var $logo = $("#logo");
+    setInterval(function () {
+        $logo.css("transform","rotate("+deg+"deg)");
+        deg++;
+    },10);
+}
 
 $(document).ready(function () {
     $("#loginButton").click(function () {
