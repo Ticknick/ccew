@@ -18,14 +18,18 @@ import java.util.List;
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
-    @Autowired
-    EnumPramMethodArgumentResolver enumPramMethodArgumentResolver;
+    final EnumPramMethodArgumentResolver enumPramMethodArgumentResolver;
+
+    final CurrentUserMethodArgumentResolver currentUserMethodArgumentResolver;
+
+    private final AuthorizationInterceptor authorizationInterceptor;
 
     @Autowired
-    CurrentUserMethodArgumentResolver currentUserMethodArgumentResolver;
-
-    @Autowired
-    private AuthorizationInterceptor authorizationInterceptor;
+    public WebMvcConfig(EnumPramMethodArgumentResolver enumPramMethodArgumentResolver, CurrentUserMethodArgumentResolver currentUserMethodArgumentResolver, AuthorizationInterceptor authorizationInterceptor) {
+        this.enumPramMethodArgumentResolver = enumPramMethodArgumentResolver;
+        this.currentUserMethodArgumentResolver = currentUserMethodArgumentResolver;
+        this.authorizationInterceptor = authorizationInterceptor;
+    }
 
     /**
      * 增加参数解析器
