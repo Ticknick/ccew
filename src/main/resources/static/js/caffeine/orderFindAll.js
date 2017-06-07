@@ -32,7 +32,7 @@ $(document).ready(function () {
                     '<option  value="7">五次失败</option>' +
                     '<option  value="8">最终失败</option>' +
                     '</select></td>' +
-                    '<td><button onclick="changeState('+item.id+')">提交</button></td>' +
+                    '<td><button onclick="changeState(' + item.id + ')">提交</button></td>' +
                     '</tr>';
 
                 // var itemhtml = '<tr style="display: none" id="tr' + item.id + '">' +
@@ -59,7 +59,7 @@ $(document).ready(function () {
 });
 
 function getState(num) {
-    switch (num){
+    switch (num) {
         case 0:
             return "等待通过";
         case 1:
@@ -82,8 +82,24 @@ function getState(num) {
 }
 
 function changeState(orderId) {
-    var state = $("#tr"+orderId).find("select").val();
-    alert(orderId+"  "+state);
+    var state = $("#tr" + orderId).find("select").val();
+    alert(orderId + "  " + state);
+    $.ajax({
+        url: "/" + orderId + "/process",
+        type: "put",
+        data: {"state": state},
+        success: function (result) {
+            //加载特效
+            if (result.status == 200) {
+                alert("成功");
+            } else {
+                alert("失败");
+            }
+        },
+        error: function () {
+            alert("ajax请求发送失败");
+        }
+    })
 }
 
 function openPop_review(reviewString) {
