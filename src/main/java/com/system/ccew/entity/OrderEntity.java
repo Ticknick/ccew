@@ -105,7 +105,7 @@ public class OrderEntity {
 
     @NotFound(action = NotFoundAction.IGNORE)
     @OneToOne(cascade = CascadeType.DETACH, targetEntity = UserEntity.class,optional = true)
-    @JoinColumn(name = "user", insertable = false, updatable = false)
+    @JoinColumn(name = "userid", insertable = false, updatable = false)
     public UserEntity getUser() {
         return user;
     }
