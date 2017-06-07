@@ -8,9 +8,9 @@ $(document).ready(function () {
     showLoading("正在加载数据");
 
     $.ajax({
-        url: "/ordersget",
+        url: "/orders",
         type: "get",
-        data: {"token": getCookie("token"), "state": 0},
+        data: {"token": getCookie("token")},
         success: function (result) {
             //加载特效
             var _display = function (item) {
