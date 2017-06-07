@@ -8,7 +8,7 @@ $(document).ready(function () {
     showLoading("正在加载数据");
 
     $.ajax({
-        url: "/reviews",
+        url: "/ordersget",
         type: "get",
         data: {"token": getCookie("token"), "state": 0},
         success: function (result) {
