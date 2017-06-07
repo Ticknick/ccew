@@ -35,7 +35,7 @@
 }
 
 /*返回顶部*/
-#back_top {
+#back_top{
     z-index: 500;
     position: fixed;
     overflow: hidden;
@@ -43,17 +43,16 @@
     right: 12%;
     width: 3em;
     height: 3em;
-    border-radius: 10%;
+    border-radius: 10% ;
     box-shadow: 0 0 5px;
     background: #ffffff;
     transition: background 0.5s;
 }
-
-#back_top:hover {
+#back_top:hover{
     background: #1ab2e8;
 }
 
-#back_top::before, #back_top::after {
+#back_top::before,#back_top::after{
     content: '';
     position: absolute;
     display: block;
@@ -66,23 +65,19 @@
 
     box-shadow: -0.1em -0.1em 0.1em;
     transform: rotate(45deg);
-    transition: bottom 0.5s ease-out, box-shadow 0.5s ease-out;
+    transition: bottom 0.5s ease-out,box-shadow 0.5s ease-out;
 }
-
-#back_top::before {
+#back_top::before{
     bottom: 10%;
 }
-
-#back_top:hover::before {
+#back_top:hover::before{
     bottom: 150%;
     box-shadow: -0.2em -0.2em 0 #ffffff;
 }
-
-#back_top::after {
+#back_top::after{
     bottom: -100%;
 }
-
-#back_top:hover::after {
+#back_top:hover::after{
     bottom: 10%;
     box-shadow: -0.2em -0.2em 0 #ffffff;
 
@@ -95,13 +90,9 @@
     min-height: 45em;
     margin: 0 auto;
     padding-top: 4em;
-    background-size: cover;
-    background-image: url('http://www.hacg.fi/2/img/topBG.jpg');
-    background-color: #fdf5db;
-    height: 100%;
 }
 
-.content::after {
+.content::after{
     content: " ";
     display: block;
     clear: both;
