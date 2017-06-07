@@ -83,7 +83,7 @@ function getState(num) {
 
 function changeState(orderId) {
     var state = $("#tr" + orderId).find("select").val();
-    alert(orderId + "  " + state);
+    // alert(orderId + "  " + state);
     $.ajax({
         url: "/" + orderId + "/process",
         type: "put",
