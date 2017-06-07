@@ -10,13 +10,14 @@ window.onload = function () {
 
     rotate();
 };
+
 function rotate() {
     var deg = 0;
     var $logo = $("#logo");
     setInterval(function () {
         $logo.css("transform","rotate("+deg+"deg)");
         deg++;
-    },10);
+    },15);
 }
 
 $(document).ready(function () {
