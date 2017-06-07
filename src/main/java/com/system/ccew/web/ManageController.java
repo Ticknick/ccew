@@ -28,6 +28,10 @@ public class ManageController {
     public String hello4() {
         return "caffeine/query";
     }
+    @RequestMapping("/")
+    public String hello5() {
+        return "caffeine/signin";
+    }
 
 }
 
