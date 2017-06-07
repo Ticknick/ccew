@@ -27,6 +27,10 @@
     background: rgba(249, 249, 249, 0.49);
 }
 
+.myTable tr:hover{
+    background: rgba(249, 249, 249, 0.81);
+}
+
 .myTable td, th {
     text-align: center;
 }
