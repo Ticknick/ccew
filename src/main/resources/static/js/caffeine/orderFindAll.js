@@ -3,7 +3,7 @@
  */
 $(document).ready(function () {
     var $table = $("#reviewList").find("tbody");
-    // $table.find("tr").remove();
+    $table.find("tr").remove();
 
     showLoading("正在加载数据");
 
@@ -20,7 +20,7 @@ $(document).ready(function () {
                     '<td>' + item.bidid + '</td>' +
                     '<td>' + item.bidid_psd + '</td>' +
                     '<td>' + item.user.phone + '</td>' +
-                    '<td>' + item.state + '</td>' +
+                    '<td>' + getState(item.state) + '</td>' +
                     '<td><select class="changeState">' +
                     '<option  value="0">等待通过</option>' +
                     '<option  value="1">开始服务</option>' +
@@ -47,6 +47,7 @@ $(document).ready(function () {
             var _afterdisplay = function (item) {
                 $("#tr" + item.id).fadeIn(500);
             };
+            console.log(JSON.stringify(result.data));
             beautifyDisplay(_display, _afterdisplay, result.data, "reviewsList");
             hideLoading();
         },
@@ -56,6 +57,29 @@ $(document).ready(function () {
         }
     })
 });
+
+function getState(num) {
+    switch (num){
+        case "0":
+            return "等待通过";
+        case "1":
+            return "开始服务";
+        case "2":
+            return "成功";
+        case "3":
+            return "一次失败";
+        case "4":
+            return "二次失败";
+        case "5":
+            return "三次失败";
+        case "6":
+            return "四次失败";
+        case "7":
+            return "五次失败";
+        case "8":
+            return "最终失败";
+    }
+}
 
 function changeState(orderId) {
     alert(orderId);
