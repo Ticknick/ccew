@@ -57,6 +57,12 @@ public class OrderController {
 //        return Response.ok(orders);
 //    }
 
+    @GetMapping
+    @Authorization
+    public Response all(){
+        return Response.ok(orderDao.findAll());
+    }
+
     /**
      * 返回订单列表
      *
