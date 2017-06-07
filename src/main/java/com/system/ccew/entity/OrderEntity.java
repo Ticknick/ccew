@@ -44,7 +44,7 @@ public class OrderEntity {
 
 
     @Basic
-    @Column(name = "user")
+    @Column(name = "userid")
     public int getUserId() {
         return userId;
     }
