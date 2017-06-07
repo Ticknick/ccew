@@ -18,14 +18,14 @@ public class Hello {
     @Autowired
     UserDao userDao;
 
-    @RequestMapping("/")
-    public String hello() {
-
-//        userDao.findByIds()
-//        userDao.findBy("nickname","jey")
-
-        return "order";
-    }
+//    @RequestMapping("/")
+//    public String hello() {
+//
+////        userDao.findByIds()
+////        userDao.findBy("nickname","jey")
+//
+//        return "order";
+//    }
 
     @RequestMapping("/hello/as")
     public String hell1o() {
