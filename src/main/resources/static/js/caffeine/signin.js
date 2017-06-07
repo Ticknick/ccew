@@ -17,7 +17,7 @@ function rotate() {
     setInterval(function () {
         $logo.css("transform","rotate("+deg+"deg)");
         deg++;
-    },15);
+    },20);
 }
 
 $(document).ready(function () {
