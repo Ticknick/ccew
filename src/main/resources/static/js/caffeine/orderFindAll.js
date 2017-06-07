@@ -60,23 +60,23 @@ $(document).ready(function () {
 
 function getState(num) {
     switch (num){
-        case "0":
+        case 0:
             return "等待通过";
-        case "1":
+        case 1:
             return "开始服务";
-        case "2":
+        case 2:
             return "成功";
-        case "3":
+        case 3:
             return "一次失败";
-        case "4":
+        case 4:
             return "二次失败";
-        case "5":
+        case 5:
             return "三次失败";
-        case "6":
+        case 6:
             return "四次失败";
-        case "7":
+        case 7:
             return "五次失败";
-        case "8":
+        case 8:
             return "最终失败";
     }
 }
