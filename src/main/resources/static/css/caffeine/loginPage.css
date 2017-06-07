@@ -18,12 +18,12 @@ body {
 
 .login {
     font-size: 1.2em;
-    position: absolute;
+    position: relative;
     top: 30%;
-    right: 10%;
+    margin: auto;
     width: 25em;
     padding: 2em 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(111, 111, 111, 0);
     border-radius: 0.4em;
     line-height: 5em;
     text-align: center;
