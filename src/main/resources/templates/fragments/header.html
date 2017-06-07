@@ -14,7 +14,7 @@
         <div class="navBar-title">
             <ul class="nav">
                 <li>
-                    <a href="#">SED</a>
+                    <a href="#">Caffeine</a>
                 </li>
             </ul>
         </div>
@@ -25,9 +25,9 @@
                         <a href="#" th:href="@{/caffeine/examine}">审核</a>
                     </li>
 
-                    <li th:classappend="${page == 'messages' ? 'active' : ''}" sec:authorize="hasRole('ROLE_ADMIN')">
-                        <a href="#" th:href="@{/caffeine/complaints}">申诉</a>
-                    </li>
+                    <!--<li th:classappend="${page == 'messages' ? 'active' : ''}" sec:authorize="hasRole('ROLE_ADMIN')">-->
+                        <!--<a href="#" th:href="@{/caffeine/complaints}">申诉</a>-->
+                    <!--</li>-->
 
                     <li th:classappend="${page == 'home' ? 'active' : ''}">
                         <a href="#" th:href="@{/caffeine/query}">查询</a>
@@ -54,11 +54,11 @@
         <div class="navBar-user">
             <ul class="nav">
                 <!--/*@thymesVar id="user" type="com.repository.entity.UsersEntity"*/-->
-                <li class="icon-user" th:if="${session.user!= null}">
-                    <a href="#" th:text="${session.user.usersName}">XXX</a>
-                </li>
-                <li class="icon-exit">
-                    <a href="/login" th:href="@{/caffeine/signin}">Logout</a>
+                <!--<li class="icon-user" th:if="${session.user!= null}">-->
+                    <!--<a href="#" th:text="${session.user.usersName}">XXX</a>-->
+                <!--</li>-->
+                <li class="">
+                    <a href="/login" th:href="@{/}">退出</a>
                 </li>
             </ul>
         </div>
