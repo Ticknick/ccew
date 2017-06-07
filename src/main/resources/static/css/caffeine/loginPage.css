@@ -43,25 +43,43 @@ body {
     font-size: inherit;
     width: 100%;
     height: 2.7em;
+    color: white;
+
     margin-left: -1.2em;
     border-radius: 0.5em;
     border: 0.2em solid rgba(234, 237, 237, 0);
     background: rgba(255, 255, 255, 0);
 }
 
+input:-moz-placeholder {/* Mozilla Firefox 4 to 18*/
+    color: white;
+}
+input::-moz-placeholder {/* Mozilla Firefox 19+*/
+    color: white;
+}
+
+input:-ms-input-placeholder{
+    color: white;
+}
+
+input::-webkit-input-placeholder{
+    color: white;
+}
+
+
 .login input[type="submit"], input[type="button"] {
     margin-left: 0;
     width: 10em;
     color: white;
-    background: #1ab2e8;
+    background: rgba(26, 178, 232, 0.49);
 }
 
 .login input:focus + .icon-after-user {
-    color: #1ab2e8;
+    color: rgba(26, 178, 232, 0.51);
 }
 
 .login input:focus + .icon-after-lock {
-    color: #1ab2e8;
+    color: rgba(26, 178, 232, 0.48);
 }
 
 .icon-after-user, .icon-after-lock {
