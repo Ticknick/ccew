@@ -82,7 +82,8 @@ function getState(num) {
 }
 
 function changeState(orderId) {
-    alert(orderId);
+    var state = $("#tr"+orderId).find("select").val();
+    alert(orderId+"  "+state);
 }
 
 function openPop_review(reviewString) {
