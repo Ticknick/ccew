@@ -24,8 +24,9 @@
 </div>
 <!--<div id="header" th:replace="fragments/header :: header"></div>-->
 
-<div class="content"
-     style="background-size: cover;background-image: url('http://www.hacg.fi/2/img/topBG.jpg');background-color:#fdf5db;height:100%">
+
+<div tiles:fragment="content"
+     style="background-size: cover;background-image: url('/picture/topBG.jpg');background-color:#fdf5db;height:100%">
     <form class="login myInput" method="post">
         <div class="name">
             <input type='text' name='uid' placeholder="账号"/>
